@@ -8,7 +8,6 @@ public interface FindMaxSubArray {
 	 */
 	public void findMaxSubSequence(int[] sequence);
 	
-	
 	/*
 	 * Return the sum found in the sequence
 	 */
