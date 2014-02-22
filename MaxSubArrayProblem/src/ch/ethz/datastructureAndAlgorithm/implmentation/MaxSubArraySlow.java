@@ -13,7 +13,7 @@ public class MaxSubArraySlow implements FindMaxSubArray {
 	}
 	
 	@Override
-	public void findMaxSubSequence(int[] sequence) {
+	public void findMaxSubSumInSequence(int[] sequence) {
 		for(int i = 0; i<sequence.length; i++){
 			for(int j = i; j <sequence.length; j++){
 				int sum = 0;

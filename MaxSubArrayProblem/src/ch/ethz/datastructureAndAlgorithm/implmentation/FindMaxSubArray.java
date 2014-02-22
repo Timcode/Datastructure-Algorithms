@@ -6,7 +6,7 @@ public interface FindMaxSubArray {
 	/*
 	 * Find the best sequence in the array
 	 */
-	public void findMaxSubSequence(int[] sequence);
+	public void findMaxSubSumInSequence(int[] sequence);
 	
 	/*
 	 * Return the maximal sum found in the sequence

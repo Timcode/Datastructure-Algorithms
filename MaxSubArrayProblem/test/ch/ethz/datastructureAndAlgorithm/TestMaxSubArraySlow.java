@@ -20,28 +20,28 @@ public class TestMaxSubArraySlow {
 	@Test
 	public void testOne() {
 		int[] sequence = {1,2,3,4,5,6,7,8,9};
-		solver.findMaxSubSequence(sequence);
+		solver.findMaxSubSumInSequence(sequence);
 		assertEquals(45, solver.getMaxSum());
 	}
 	
 	@Test
 	public void testTwo() {
 		int[] sequence = {14};
-		solver.findMaxSubSequence(sequence);
+		solver.findMaxSubSumInSequence(sequence);
 		assertEquals(14, solver.getMaxSum());
 	}
 	
 	@Test
 	public void testThree() {
 		int[] sequence = {4, -4, 4, -4};
-		solver.findMaxSubSequence(sequence);
+		solver.findMaxSubSumInSequence(sequence);
 		assertEquals(4, solver.getMaxSum());
 	}
 	
 	@Test
 	public void testFour() {
 		int[] sequence = {30, -21, 3, 5, 6, 100, -50, 4};
-		solver.findMaxSubSequence(sequence);
+		solver.findMaxSubSumInSequence(sequence);
 		assertEquals(123, solver.getMaxSum());
 	}
 

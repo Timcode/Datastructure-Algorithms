@@ -11,7 +11,7 @@ public class MaxSubArrayFast implements FindMaxSubArray {
 	}
 
 	@Override
-	public void findMaxSubSequence(int[] sequence) {
+	public void findMaxSubSumInSequence(int[] sequence) {
 		MaxSumInSequence = maxSumDivideAndConquer(sequence, 0, sequence.length - 1);
 	}
 
