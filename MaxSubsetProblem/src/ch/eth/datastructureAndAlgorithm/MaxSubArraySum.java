@@ -5,11 +5,6 @@ import ch.eth.datastructureAndAlgorithm.implmentation.MaxSubArrayFast;
 import ch.eth.datastructureAndAlgorithm.implmentation.MaxSubArrayFastest;
 import ch.eth.datastructureAndAlgorithm.implmentation.MaxSubArraySlow;
 
-/**
- * 
- * @author tbruellm
- *
- */
 
 public class MaxSubArraySum {
 
