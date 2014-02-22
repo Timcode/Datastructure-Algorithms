@@ -1,4 +1,4 @@
-package ch.eth.datastructureAndAlgorithm.implmentation;
+package ch.ethz.datastructureAndAlgorithm.implmentation;
 
 
 public interface FindMaxSubArray {
@@ -9,12 +9,12 @@ public interface FindMaxSubArray {
 	public void findMaxSubSequence(int[] sequence);
 	
 	/*
-	 * Return the sum found in the sequence
+	 * Return the maximal sum found in the sequence
 	 */
 	public int getMaxSum();
 	
 	/*
-	 * Return the indices if possible
+	 * Return the indices, if possible
 	 */
 	public int[] getIndices();
 }

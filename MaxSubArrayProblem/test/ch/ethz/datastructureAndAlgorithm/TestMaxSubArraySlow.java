@@ -1,20 +1,20 @@
-package ch.eth.datastructureAndAlgorithm;
+package ch.ethz.datastructureAndAlgorithm;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import ch.eth.datastructureAndAlgorithm.implmentation.FindMaxSubArray;
-import ch.eth.datastructureAndAlgorithm.implmentation.MaxSubArrayFast;
+import ch.ethz.datastructureAndAlgorithm.implmentation.FindMaxSubArray;
+import ch.ethz.datastructureAndAlgorithm.implmentation.MaxSubArraySlow;
 
-public class TestMaxSubArrayFast {
+public class TestMaxSubArraySlow {
 
-private FindMaxSubArray solver;
+	private FindMaxSubArray solver;
 	
 	@Before
 	public void setUp(){
-		solver = new MaxSubArrayFast();
+		solver = new MaxSubArraySlow();
 	}
 	
 	@Test

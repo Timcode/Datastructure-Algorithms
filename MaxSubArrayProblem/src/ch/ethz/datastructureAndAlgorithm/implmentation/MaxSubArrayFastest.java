@@ -1,4 +1,4 @@
-package ch.eth.datastructureAndAlgorithm.implmentation;
+package ch.ethz.datastructureAndAlgorithm.implmentation;
 
 /*
  * Runs in O(n)

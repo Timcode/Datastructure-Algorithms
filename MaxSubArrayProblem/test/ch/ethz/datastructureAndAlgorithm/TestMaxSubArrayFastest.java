@@ -1,12 +1,12 @@
-package ch.eth.datastructureAndAlgorithm;
+package ch.ethz.datastructureAndAlgorithm;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import ch.eth.datastructureAndAlgorithm.implmentation.FindMaxSubArray;
-import ch.eth.datastructureAndAlgorithm.implmentation.MaxSubArrayFastest;
+import ch.ethz.datastructureAndAlgorithm.implmentation.FindMaxSubArray;
+import ch.ethz.datastructureAndAlgorithm.implmentation.MaxSubArrayFastest;
 
 public class TestMaxSubArrayFastest {
 

@@ -1,9 +1,9 @@
-package ch.eth.datastructureAndAlgorithm;
+package ch.ethz.datastructureAndAlgorithm;
 
-import ch.eth.datastructureAndAlgorithm.implmentation.FindMaxSubArray;
-import ch.eth.datastructureAndAlgorithm.implmentation.MaxSubArrayFast;
-import ch.eth.datastructureAndAlgorithm.implmentation.MaxSubArrayFastest;
-import ch.eth.datastructureAndAlgorithm.implmentation.MaxSubArraySlow;
+import ch.ethz.datastructureAndAlgorithm.implmentation.FindMaxSubArray;
+import ch.ethz.datastructureAndAlgorithm.implmentation.MaxSubArrayFast;
+import ch.ethz.datastructureAndAlgorithm.implmentation.MaxSubArrayFastest;
+import ch.ethz.datastructureAndAlgorithm.implmentation.MaxSubArraySlow;
 
 
 public class MaxSubArraySum {
