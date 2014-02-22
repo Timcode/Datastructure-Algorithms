@@ -1,4 +1,4 @@
-Datastructure-Algorithms
-========================
+Data Structures & Algorithms
+==============================
 
-Collections of different algorithms and data structure (in Java).
+Collection of different algorithms and data structures (in Java).
