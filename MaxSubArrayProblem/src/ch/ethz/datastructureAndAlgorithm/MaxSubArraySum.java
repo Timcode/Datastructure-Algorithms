@@ -9,7 +9,7 @@ import ch.ethz.datastructureAndAlgorithm.implmentation.MaxSubArraySlow;
 public class MaxSubArraySum {
 
 	public static void main(String[] args) {
-		int[] array = {2, 3, -6, 7};
+		int[] array = {2, -3, 6, 4, 5, -6};
 
 		// O(n^3)
 		FindMaxSubArray s = new MaxSubArraySlow();
