@@ -6,10 +6,9 @@ class Main {
 	
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
+		int numberOfTestCases = scanner.nextInt();
 		
-		int lines = scanner.nextInt();
-		
-		for(int i = 0; i < lines; i++){
+		for(int i = 0; i < numberOfTestCases; i++){
 			int m = scanner.nextInt();
 			int n = scanner.nextInt();
 			
@@ -31,24 +30,29 @@ class Main {
 	
 	private static void print(HashMap hashMap) {
 		int[] v = hashMap.getValues();
-		
 		System.out.print(hashMap.getTotalCollisions() + " ");
 		for (int i = 0; i < v.length; i++) {
 			System.out.print(v[i]);
-			if((i+1)!=v.length)
+			if ((i + 1) != v.length)
 				System.out.print(" ");
 		}
 		System.out.println();		
 	}
 
 
+	/**
+	 * HashMap which can be configured with a InsertStrategy to fill the array
+	 * Remove(), size() and other methods are not impl.
+	 * @author tbruellm
+	 *
+	 */
 
 	private static class HashMap{
 		
 		private InsertStrategy strategy;
 		private int m;
-		private int NumberOfCollisions;
-		int[] values;
+		private int numberOfCollisions;
+		private int[] values;
 		
 		public HashMap(int m, List<Integer> insertValues, InsertStrategy strategy){
 			
@@ -71,10 +75,12 @@ class Main {
 			int mod = i % m;
 			int position = mod;
 			int localCollisions = 0;
-			while(values[position] != 0)
-				position = positivModulo(mod - strategy.insert(++localCollisions, i, m), m); //negative index, build circular array
+			while(values[position] != 0){
+				int delta = strategy.insert(++localCollisions, i, m);
+				position = positivModulo(mod - delta, m); //negative Modulo calculation
+			}
 			
-			this.NumberOfCollisions+=localCollisions;
+			this.numberOfCollisions+=localCollisions;
 			return position;
 		}
 
@@ -83,7 +89,7 @@ class Main {
 		}
 		
 		public int getTotalCollisions(){
-			return NumberOfCollisions;
+			return numberOfCollisions;
 		}
 		
 		public int[] getValues(){
