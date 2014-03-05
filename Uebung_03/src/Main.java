@@ -86,7 +86,7 @@ class Main {
 					subArray[column] = tempMatrix[j][column] - tempMatrix[i - 1][column];
 				}
 
-				// Max sum of the subarray
+				// Max sum of the subarray (Kadane)
 				int max = 0;
 				for (int c = 0; c < LENGTH; c++) {
 					max = subArray[c] + max;
