@@ -27,16 +27,20 @@ class Main {
 		scanner.close();
 	}
 
-	
-	
-	
+	/**
+	 * Performance is O(n^6)
+	 * @param matrix
+	 * @return
+	 */
 	private static int MaxSubMatrixSlow(int[][] matrix) {
 		int maxSum = 0;
 
 		for (int i = 0; i < matrix.length; i++) {
 			for (int j = 0; j < matrix[0].length; j++) {
+				
 				for (int u = i; u < matrix.length; u++) {
 					for (int v = j; v < matrix.length; v++) {
+						
 						int temp = 0;
 						for (int t = i; t <= u; t++) {
 							for (int s = j; s <= v; s++) {
