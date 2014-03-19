@@ -58,7 +58,7 @@ class Main {
 	}
 
 	/**
-	 * Performance is o(n^2) and is based on the Kadane algorithm
+	 * Performance is o(n^3) and is based on the Kadane algorithm
 	 * 
 	 * @param matrix
 	 * @return
