@@ -16,7 +16,7 @@ class Main {
 				heap.insert(scanner.nextInt());
 				System.out.print(heap.query_last());
 
-				//Space between results
+				// Space between results
 				if (j < (n - 1))
 					System.out.print(" ");
 			}
@@ -24,7 +24,7 @@ class Main {
 
 			while (!heap.isEmpty()) {
 				System.out.print(heap.extractMin());
-				//Space between results
+				// Space between results
 				if (heap.size() > 0)
 					System.out.print(" ");
 			}
@@ -38,79 +38,90 @@ class Main {
 
 class MinHeap {
 
-	int[] elements;
+	int[] heap;
 	int counter;
 
 	MinHeap(int size) {
-		elements = new int[size];
+		heap = new int[size];
 		counter = 0;
 	}
 
 	public void insert(int value) {
-		elements[counter] = value;
-		restoreHeapCondition(counter);
+		heap[counter] = value;
+		bubbleUp(counter);
 		counter++;
 	}
 
-	private void restoreHeapCondition(int childIndex) {
-		if (childIndex == 0)
-			return;
-
-		int parentIndex = (childIndex - 1) / 2;
-		if (elements[childIndex] > elements[parentIndex])
-			return;
-		else
-			swap(childIndex, parentIndex);
-
-		if (parentIndex != 0)
-			restoreHeapCondition(parentIndex);
-	}
-
 	public int query_last() {
-		return elements[counter - 1];
+		return heap[counter - 1];
 	}
 
 	public int extractMin() {
-		int out = elements[0];
+		int min = heap[0];
 		delete(0);
-		return out;
+		return min;
 	}
 
 	public void delete(int index) {
-		elements[index] = elements[--counter];
+		heap[index] = heap[--counter];
 		bubbleDown(index);
+
+	}
+
+	private void bubbleUp(int index) {
+
+		while (index != 0) {
+			int parent = (index - 1) / 2;
+			if (heap[index] > heap[parent])
+				break;
+			swap(index, parent);
+			index = parent;
+		}
 	}
 
 	private void bubbleDown(int index) {
-		int leftChild = 2 * index + 1;
-		int rightChild = 2 * index + 2;
 
-		// No children
-		if (leftChild >= counter)
-			return;
+		int rightChild;
+		int leftChild;
+		int smaller;
 
-		// Only one left child
-		if (rightChild >= counter) {
-			if (elements[index] > elements[leftChild]) {
-				swap(index, leftChild);
-				return;
-			}
+		while (index < counter) {
+
+			leftChild = getLeftChild(index);
+			rightChild = getRightChild(index);
+
+			//Left is already a leaf node
+			if (leftChild >= counter)
+				break;
+
+			if (rightChild >= counter) {
+				smaller = leftChild;
+			} else if (heap[leftChild] < heap[rightChild]) {
+				smaller = leftChild;
+			} else
+				smaller = rightChild;
+
+			if (heap[smaller] < heap[index]) {
+				swap(index, smaller);
+				index = smaller;
+			} else
+				break;
+
 		}
-
-		int minIndex = elements[leftChild] < elements[rightChild] ? leftChild : rightChild;
-		if (elements[index] < elements[minIndex]) {
-			return;
-		}
-		swap(index, minIndex);
-		bubbleDown(minIndex);
-
 	}
 
+	private int getLeftChild(int index) {
+		return 2 * index + 1;
+	}
 
-	private void swap(int child, int parent) {
-		int temp = elements[child];
-		elements[child] = elements[parent];
-		elements[parent] = temp;
+	private int getRightChild(int index) {
+		return 2 * index + 2;
+	}
+
+	private void swap(int a, int b) {
+		int temp = heap[a];
+		heap[a] = heap[b];
+		heap[b] = temp;
 	}
 
 	public int size() {
