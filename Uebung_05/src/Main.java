@@ -12,10 +12,10 @@ class Main {
 
 			MinHeap heap = new MinHeap(n);
 
-			//Looking for the last element in the heap
+			// Looking for the last element in the heap
 			for (int j = 0; j < n; j++) {
 				heap.insert(scanner.nextInt());
-				System.out.print(heap.query_last());
+				System.out.print(heap.queryLast());
 
 				// Space between results
 				if (j < (n - 1))
@@ -23,7 +23,7 @@ class Main {
 			}
 			System.out.println();
 
-			//Unbuild the heap by removing the minElement
+			// Unbuild the heap by removing the minElement
 			while (!heap.isEmpty()) {
 				System.out.print(heap.extractMin());
 				// Space between results
@@ -41,21 +41,21 @@ class Main {
 class MinHeap {
 
 	int[] heap;
-	int counter;
+	int elementCounter;
 	final int MIN_HEAP_POSITION = 1;
 
 	MinHeap(int size) {
-		heap = new int[size+1];
-		counter = 0;
+		heap = new int[size + 1];
+		elementCounter = 0;
 	}
 
 	public void insert(int value) {
-		heap[++counter] = value;
-		bubbleUp(counter);
+		heap[++elementCounter] = value;
+		bubbleUp(elementCounter);
 	}
 
-	public int query_last() {
-		return heap[counter];
+	public int queryLast() {
+		return heap[elementCounter];
 	}
 
 	public int extractMin() {
@@ -65,9 +65,9 @@ class MinHeap {
 	}
 
 	public void delete(int index) {
-		heap[index] = heap[counter];
+		heap[index] = heap[elementCounter];
 		bubbleDown(index);
-		counter--;
+		elementCounter--;
 
 	}
 
@@ -88,16 +88,16 @@ class MinHeap {
 		int leftChild;
 		int smaller;
 
-		while (index < counter) {
+		while (index < elementCounter) {
 
 			leftChild = getLeftChild(index);
 			rightChild = getRightChild(index);
 
-			//Left is already a leaf node
-			if (leftChild >= counter)
+			// Left is already a leaf node
+			if (leftChild >= elementCounter)
 				break;
 
-			if (rightChild >= counter) {
+			if (rightChild >= elementCounter) {
 				smaller = leftChild;
 			} else if (heap[leftChild] < heap[rightChild]) {
 				smaller = leftChild;
@@ -112,7 +112,6 @@ class MinHeap {
 
 		}
 	}
-	
 
 	private int getParent(int index) {
 		return (index) / 2;
@@ -133,11 +132,11 @@ class MinHeap {
 	}
 
 	public int size() {
-		return counter;
+		return elementCounter;
 	}
 
 	public boolean isEmpty() {
-		return counter == 0;
+		return elementCounter == 0;
 	}
 
 }
