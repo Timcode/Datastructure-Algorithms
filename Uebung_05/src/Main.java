@@ -12,6 +12,7 @@ class Main {
 
 			MinHeap heap = new MinHeap(n);
 
+			//Looking for the last element in the heap
 			for (int j = 0; j < n; j++) {
 				heap.insert(scanner.nextInt());
 				System.out.print(heap.query_last());
@@ -22,6 +23,7 @@ class Main {
 			}
 			System.out.println();
 
+			//Unbuild the heap by removing the minElement
 			while (!heap.isEmpty()) {
 				System.out.print(heap.extractMin());
 				// Space between results
@@ -40,38 +42,39 @@ class MinHeap {
 
 	int[] heap;
 	int counter;
+	final int MIN_HEAP_POSITION = 1;
 
 	MinHeap(int size) {
-		heap = new int[size];
+		heap = new int[size+1];
 		counter = 0;
 	}
 
 	public void insert(int value) {
-		heap[counter] = value;
+		heap[++counter] = value;
 		bubbleUp(counter);
-		counter++;
 	}
 
 	public int query_last() {
-		return heap[counter - 1];
+		return heap[counter];
 	}
 
 	public int extractMin() {
-		int min = heap[0];
-		delete(0);
+		int min = heap[MIN_HEAP_POSITION];
+		delete(MIN_HEAP_POSITION);
 		return min;
 	}
 
 	public void delete(int index) {
-		heap[index] = heap[--counter];
+		heap[index] = heap[counter];
 		bubbleDown(index);
+		counter--;
 
 	}
 
 	private void bubbleUp(int index) {
 
-		while (index != 0) {
-			int parent = (index - 1) / 2;
+		while (index != MIN_HEAP_POSITION) {
+			int parent = getParent(index);
 			if (heap[index] > heap[parent])
 				break;
 			swap(index, parent);
@@ -109,13 +112,18 @@ class MinHeap {
 
 		}
 	}
+	
+
+	private int getParent(int index) {
+		return (index) / 2;
+	}
 
 	private int getLeftChild(int index) {
-		return 2 * index + 1;
+		return 2 * index;
 	}
 
 	private int getRightChild(int index) {
-		return 2 * index + 2;
+		return 2 * index + 1;
 	}
 
 	private void swap(int a, int b) {
