@@ -44,7 +44,7 @@ class MinHeap {
 	int elementCounter;
 	final int MIN_HEAP_POSITION = 1;
 
-	MinHeap(int size) {
+	public MinHeap(int size) {
 		heap = new int[size + 1];
 		elementCounter = 0;
 	}
